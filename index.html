@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Movie App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="dynamic-header" class="header-container">
+        <div class="dynamic-island"><h1 class="neon-title">My Videos</h1></div>
+    </div>
+
+    <div id="home-page" class="container">
+        <div class="video-grid" id="video-list"></div>
+    </div>
+
+    <div id="player-page" class="container hidden">
+        <div class="main-player" id="video-container">
+            <video id="main-video" playsinline></video>
+            
+            <div class="controls">
+                <div class="progress-bar" onclick="seek(event)"><div id="progress"></div></div>
+                <div class="buttons">
+                    <i data-lucide="skip-back" onclick="prevVideo()"></i>
+                    <i data-lucide="rewind" onclick="skip(-10)"></i>
+                    <i data-lucide="play" id="play-btn" onclick="togglePlay()"></i>
+                    <i data-lucide="fast-forward" onclick="skip(10)"></i>
+                    <i data-lucide="skip-forward" onclick="nextVideo()"></i>
+                    <i data-lucide="volume-2" id="mute-btn" onclick="toggleMute()"></i>
+
+                    <div class="settings-dropdown">
+                        <i data-lucide="settings" onclick="toggleSettings()"></i>
+                        <div id="quality-menu" class="dropdown-content hidden"></div>
+                    </div>
+
+                    <i data-lucide="maximize" onclick="toggleFullScreen()"></i>
+                    <a id="download-link" download target="_blank"><i data-lucide="download"></i></a>
+                </div>
+            </div>
+        </div>
+        <h2 class="up-next">Recommended for You</h2>
+        <div class="video-grid" id="suggested-list"></div>
+        <button class="back-btn" onclick="goHome()">Back to Home</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

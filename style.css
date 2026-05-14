@@ -1,0 +1,43 @@
+:root { --neon: #00f3ff; --bg: #050505; --gradient: linear-gradient(90deg, #ff007f, #00f3ff, #ff007f); }
+body { background: var(--bg); color: white; margin: 0; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+.hidden { display: none !important; }
+
+/* Dynamic Island */
+.header-container { display: flex; justify-content: center; padding: 20px; position: sticky; top: 0; z-index: 100; }
+.dynamic-island { background: #000; padding: 8px 40px; border-radius: 50px; border: 1px solid #333; box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
+.neon-title { margin: 0; font-size: 1.1rem; background: var(--gradient); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: flow 3s linear infinite; }
+@keyframes flow { 0% {background-position: 0%;} 100% {background-position: 200%;} }
+
+/* Grid */
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; }
+.video-card { background: #111; border-radius: 12px; overflow: hidden; transition: 0.3s; border: 1px solid #222; }
+.video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #222; }
+.video-card p { padding: 10px; font-size: 0.85rem; font-weight: 500; margin: 0; }
+
+/* Player */
+.main-player { background: #000; width: 100%; position: sticky; top: 0; z-index: 50; }
+video { width: 100%; aspect-ratio: 16/9; display: block; }
+.controls { padding: 10px 20px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+.progress-bar { width: 100%; height: 5px; background: #333; border-radius: 5px; margin-bottom: 15px; cursor: pointer; }
+#progress { height: 100%; background: var(--neon); width: 0%; border-radius: 5px; }
+.buttons { display: flex; justify-content: space-between; align-items: center; }
+.buttons i { width: 24px; height: 24px; cursor: pointer; color: #fff; transition: 0.2s; }
+.buttons i:hover { color: var(--neon); transform: scale(1.1); }
+
+/* Settings Dropdown */
+.settings-dropdown { position: relative; }
+.dropdown-content { position: absolute; bottom: 45px; right: 0; background: rgba(20,20,20,0.95); border: 1px solid #444; border-radius: 10px; backdrop-filter: blur(10px); min-width: 120px; }
+.dropdown-content button { width: 100%; padding: 12px; background: none; color: white; border: none; border-bottom: 1px solid #333; cursor: pointer; text-align: left; }
+.dropdown-content button:hover { background: var(--neon); color: #000; }
+
+.back-btn { width: calc(100% - 30px); margin: 15px; padding: 12px; border-radius: 8px; border: none; background: #222; color: white; }
+
+
+#video-container:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
